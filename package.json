@@ -1,0 +1,38 @@
+{
+  "name": "modularity-boilerplate",
+  "version": "0.0.1",
+  "description": "Next-gen frontend boilerplate with frameworks and CJS modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Meettya/modularity-boilerplate.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Meettya/modularity-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Meettya/modularity-boilerplate",
+  "dependencies": {},
+  "devDependencies": {
+    "clinch": "*",
+    "mocha": "*",
+    "chai": "*",
+    "grunt": "*",
+    "coffee-script": "*",
+    "express": "*",
+    "stylus": "*",
+    "jade": "*",
+    "lodash": "*",
+    "fs-extra": "*",
+    "ncp": "*",
+    "async": "*",
+    "nodemon": "*",
+    "static-favicon": "*",
+    "backbone" : "*",
+    "backbone.marionette":"*"
+  }
+}

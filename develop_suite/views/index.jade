@@ -1,0 +1,30 @@
+extends includes/layout
+
+block append head
+
+  script(src='vendor/head.load-1.0.3.min.js')
+
+  script
+    :coffee
+      head.js app_bundle : "js/app.js?#{+new Date()}"
+  
+  // main loader
+  script
+    :coffee
+      head.ready "app_bundle", ->
+        { App } = AppPackage
+
+        # if DOM ready
+        $ ->
+          # пока просто передаем в App ссылки на элементы монтирования, больше тут ничего нет - страница - просто холст
+          app = new App()
+          app.setMountPoints header : $('header'), section : $('section'), footer : $('footer')
+          # это потом будет хитрый роутер, пока так
+          app.show 'index'
+
+
+block page_content
+
+  header
+  section
+  footer

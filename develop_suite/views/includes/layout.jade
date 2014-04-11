@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    block head
+      meta(charset='utf-8', http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+      meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+      title Modularity demo
+
+      link(rel='stylesheet', href='bootstrap/css/bootstrap.min.css')
+      link(rel='stylesheet', href = 'bootstrap/css/bootstrap-theme.min.css')
+      link(rel='stylesheet', href='css/common.css')
+
+      script(src='vendor/jquery-2.1.0.min.js')
+      script(src='bootstrap/js/bootstrap.min.js')
+      script(src='vendor/lodash-2.4.1.min.js')
+      script(src='vendor/jade_runtime-1.3.1.js')
+      script(src='vendor/backbone-min.js')
+      script(src='vendor/backbone.marionette.min.js')
+
+  body
+    //include header
+
+    block page_content
+
+    //include footer
