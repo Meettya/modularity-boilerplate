@@ -33,6 +33,7 @@
     "nodemon": "*",
     "static-favicon": "*",
     "backbone" : "*",
-    "backbone.marionette":"*"
+    "react" : "*",
+    "react-bootstrap": "*"
   }
 }

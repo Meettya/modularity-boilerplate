@@ -1,0 +1,27 @@
+`/** @jsx React.DOM */`
+
+###
+This is example CoffeeScript React file
+###
+
+React = require 'react'
+{ ButtonToolbar, Button } = require 'react-bootstrap'
+
+CustomTrigger = require '../components/custom_trigger'
+
+module.exports = Section = React.createClass
+  render : ->
+    `<div>
+      <ButtonToolbar>
+        <Button bsStyle="primary">Primary</Button>
+        <Button bsStyle="warning">Warning</Button>
+        <CustomTrigger />
+      </ButtonToolbar>
+      <div>
+        <span className="result">
+          {this.props.text}
+        </span>
+      </div>
+    </div>`
+
+

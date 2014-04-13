@@ -11,6 +11,15 @@ block append head
   // main loader
   script
     :coffee
+
+      buidMountPoints = ->
+        pointsList = ['header', 'section', 'footer']
+        reduserFn = (acc, el) ->
+          acc[el] = document.getElementById el
+          acc
+
+        _.reduce pointsList, reduserFn, {}
+
       head.ready "app_bundle", ->
         { App } = AppPackage
 
@@ -18,13 +27,13 @@ block append head
         $ ->
           # пока просто передаем в App ссылки на элементы монтирования, больше тут ничего нет - страница - просто холст
           app = new App()
-          app.setMountPoints header : $('header'), section : $('section'), footer : $('footer')
+          app.setMountPoints buidMountPoints()
           # это потом будет хитрый роутер, пока так
           app.show 'index'
 
 
 block page_content
 
-  header
-  section
-  footer
+  header#header
+  section#section
+  footer#footer

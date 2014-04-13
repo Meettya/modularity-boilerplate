@@ -17,7 +17,8 @@ get_pack_config = (filename) ->
         jquery    : path.join root_path, 'web_modules', 'jquery'
         lodash    : path.join root_path, 'web_modules', 'lodash'        
         backbone  : path.join root_path, 'web_modules', 'backbone'
-        'backbone.marionette' : path.join root_path, 'web_modules', 'backbone.marionette'
+        react     : path.join root_path, 'web_modules', 'react'
+        'react-bootstrap' : path.join root_path, 'web_modules', 'react-bootstrap'
 
     else
       throw Error "dont know |#{filename}| settings"
