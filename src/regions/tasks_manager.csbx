@@ -1,0 +1,35 @@
+`/** @jsx React.DOM */`
+
+###
+This is example CoffeeScript React file
+###
+
+React = require 'react'
+
+TaskTable = require '../components/task_table'
+
+module.exports = TasksManager = React.createClass
+  getInitialState: ->
+      data : []
+
+  handleDeleteClick: (num) ->
+    @state.data.splice num, 1
+    @setState data : @state.data
+    null
+
+  componentWillMount: ->
+    _this = @
+    $.ajax 
+      url: _this.props.url
+      dataType: 'json'
+      success: (in_data) =>
+        _this.setState data: in_data.tasks
+      error: (xhr, status, err) =>
+        console.error _this.props.url, status, err.toString()
+
+    null
+
+  render : ->
+    `<div className="container">
+      <TaskTable data={this.state.data} handleDeleteClick={this.handleDeleteClick}/>
+    </div>`

@@ -61,13 +61,13 @@ copy = (source_dir, result_dir, cb) ->
 compile_src = (bundle_name, root_path, result_dir, cb) ->
 
   source_dir = path.join root_path, 'src'
-  files = make_files_list source_dir, /\.coffee$/
+  files = make_files_list source_dir, /\.csbx$/
 
   all_done = _.after files.length, cb
 
   for file in files
     do (file) ->
-      filename = path.basename file, '.coffee'
+      filename = path.basename file, '.csbx'
 
       pack_config = get_pack_config filename
 
@@ -81,13 +81,13 @@ compile_src = (bundle_name, root_path, result_dir, cb) ->
 clinch_files_list = (root_path, cb) ->
 
   source_dir = path.join root_path, 'src'
-  files = make_files_list source_dir, /\.coffee$/
+  files = make_files_list source_dir, /\.csbx$/
 
   all_done = _.after files.length, cb
 
   for file in files
     do (file) ->
-      filename = path.basename file, '.coffee'
+      filename = path.basename file, '.csbx'
 
       pack_config = get_pack_config filename
 

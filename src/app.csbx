@@ -8,7 +8,7 @@ _     = require 'lodash'
 
 React = require 'react'
 
-Section = require './regions/section'
+TasksManager = require './regions/tasks_manager'
 
 module.exports = class App
 
@@ -36,10 +36,8 @@ module.exports = class App
   ###
   _showPageIndex : =>
     _this = @
-    text = "CoffeeScript with React worked perfect isnt?!!!"
-
     `React.renderComponent(
-      <Section text={text} />,
+      <TasksManager url="data/tasks.json"/>,
       _this._mount_points_.section
     );`
 

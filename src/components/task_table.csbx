@@ -1,0 +1,31 @@
+`/** @jsx React.DOM */`
+
+###
+This is example CoffeeScript React file
+###
+
+React = require 'react'
+
+Task = require './task_item'
+
+_ = require 'lodash'
+
+module.exports = TaskTable = React.createClass
+
+  render : ->
+    _this = @
+    TaskRows = @props.data.map (task, num) ->
+      `<Task isDone={task.isDone} text={task.text} pos={task.id} desc={task.desc} handleDeleteClick={_this.props.handleDeleteClick} key={num}>{task.title}</Task>`
+
+    `<table className="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>title</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        { TaskRows }
+      </tbody>
+    </table>`

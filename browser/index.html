@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Modularity demo</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="vendor/jquery-2.1.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/lodash-2.4.1.min.js"></script>
+    <script src="vendor/jade_runtime-1.3.1.js"></script>
+    <script src="vendor/backbone-min.js"></script>
+    <script src="vendor/react-with-addons-0.10.0.js"></script>
+    <script src="vendor/react-bootstarp-0.8.1.min.js"></script>
+    <script src="vendor/head.load-1.0.3.min.js"></script>
+    <script>(function() {
+  head.js({
+    app_bundle: "js/app.js?" + (+new Date())
+  });
+
+}).call(this);
+
+    </script>
+    <!-- main loader-->
+    <script>(function() {
+  var buidMountPoints;
+
+  buidMountPoints = function() {
+    var pointsList, reduserFn;
+    pointsList = ['header', 'section', 'footer'];
+    reduserFn = function(acc, el) {
+      acc[el] = document.getElementById(el);
+      return acc;
+    };
+    return _.reduce(pointsList, reduserFn, {});
+  };
+
+  head.ready("app_bundle", function() {
+    var App;
+    App = AppPackage.App;
+    return $(function() {
+      var app;
+      app = new App();
+      app.setMountPoints(buidMountPoints());
+      return app.show('index');
+    });
+  });
+
+}).call(this);
+
+    </script>
+  </head>
+  <body>
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header"><a href="index.html" class="navbar-brand">Modularity demo</a></div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- add active toggler to navbar-->
+    <script>(function() {
+  $(function() {
+    var page_path;
+    page_path = /([^/]+)$/.exec(this.location.pathname);
+    $(".nav li a[href='" + page_path[1] + "']").parents('li').addClass('active');
+    return null;
+  });
+
+}).call(this);
+
+    </script>
+    <header id="header"></header>
+    <section id="section"></section>
+    <footer id="footer"></footer>
+  </body>
+</html>

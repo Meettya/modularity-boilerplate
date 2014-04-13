@@ -22,7 +22,7 @@ var CustomTrigger = React.createClass({
 
   render: function () {
     return (
-      <Button onClick={this.handleToggle} bsStyle="primary">Launch</Button>
+      <Button onClick={this.handleToggle} bsStyle="primary">{this.props.children}</Button>
     );
   },
 
@@ -32,9 +32,14 @@ var CustomTrigger = React.createClass({
   renderOverlay: function () {
     if (this.state.isModalOpen) {
       return (
-        <Modal title="Modal heading" onRequestHide={this.handleToggle}>
+        <Modal title={'# ' + this.props.data.pos + ' ' + this.props.data.children} onRequestHide={this.handleToggle}>
           <div className="modal-body">
-            This modal is controlled by our custom trigger component.
+            <h2>
+              {this.props.data.text}
+            </h2>
+            <div>
+              {this.props.data.desc}
+            </div>
           </div>
           <div className="modal-footer">
             <Button onClick={this.handleToggle}>Close</Button>

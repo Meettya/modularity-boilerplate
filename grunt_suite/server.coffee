@@ -58,6 +58,7 @@ app.use express.static path.join root_path, 'develop_suite/public'
 app.set 'views', path.join root_path, 'develop_suite/views'
 app.set 'view engine', 'jade'
 
+app.use '/data', express.static path.join root_path, 'src/data'
 
 # static page
 app.get '/', (req, res) -> res.redirect 301, '/index.html'
