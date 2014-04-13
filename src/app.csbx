@@ -1,0 +1,45 @@
+`/** @jsx React.DOM */`
+
+###
+Это заглавный файл всего приложения
+###
+
+_     = require 'lodash'
+
+React = require 'react'
+
+TasksManager = require './regions/tasks_manager'
+
+module.exports = class App
+
+  constructor: (options={}) ->
+    @_mount_points_ = null
+
+  ###
+  Передаем точки монтирования, пока наивно
+  ###
+  setMountPoints: (mount_points) =>
+    @_mount_points_ = mount_points
+
+  ###
+  Это как бы рендерер глобальный для нашей странички, имитирует перелистывание
+  ###
+  show : (page) =>
+    switch page.toUpperCase()
+      when 'INDEX' then @_showPageIndex()
+
+      else 
+        @_showPageNotFound page
+
+  ###
+  Тут рисуем индексную страницу - это должен быть конечно же вызов процедуры, а не на месте
+  ###
+  _showPageIndex : =>
+    _this = @
+    `React.renderComponent(
+      <TasksManager url="data/tasks.json"/>,
+      _this._mount_points_.section
+    );`
+
+  _showPageNotFound : (page) =>
+    # noop

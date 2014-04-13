@@ -1,0 +1,42 @@
+`/** @jsx React.DOM */`
+
+###
+This is example CoffeeScript React file
+###
+
+React = require 'react'
+
+{ ButtonToolbar, Button } = require 'react-bootstrap'
+
+CustomTrigger = require './custom_trigger'
+
+{classSet} = React.addons
+
+module.exports = TaskItem = React.createClass
+  render : ->
+    _props = @props
+    id   = @props.pos
+    content = @props.children
+
+    classes = classSet(
+      active  : yes
+      success : @props.isDone
+    )
+
+    `<tr className={classes}>
+      <td>
+        {id}
+      </td>
+      <td>
+        <span>
+          {content}
+        </span>
+      </td>
+      <td>
+        <ButtonToolbar>
+          <CustomTrigger data={_props}>Show</CustomTrigger>
+          <Button bsStyle="primary">Edit</Button>
+          <Button bsStyle="primary" onClick={function(){_props.handleDeleteClick(_props.key)}}>Delete</Button>
+        </ButtonToolbar>
+      </td>
+    </tr>`
